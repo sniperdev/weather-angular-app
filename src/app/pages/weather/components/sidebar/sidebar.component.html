@@ -1,0 +1,9 @@
+<div class="sidebar">
+  <span class="p-input-icon-left localization-input">
+    <i class="pi pi-search" (click)="getCurrentLocation()"></i>
+    <input type="text" pInputText [(ngModel)]="value" (keyup.enter)="getCurrentLocation()" class="p-inputtext-sm"/>
+  </span>
+  <span class="location-text"><i class="pi pi-map-marker"></i> {{ (location$ | async)?.name }}, {{ (location$ | async)?.country }}</span>
+  <span class="clock-text">{{ currentTime | date:'HH:mm' }}</span>
+  <span class="date-text">{{ currentTime | date:'EEE d MMMM':'':'pl' }}</span>
+</div>

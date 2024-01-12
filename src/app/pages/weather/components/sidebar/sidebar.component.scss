@@ -1,0 +1,23 @@
+.sidebar{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 25vw;
+  height: 100vh;
+  padding: 20px 0;
+  background-color: #4B81D0;
+  color: #fff;
+
+  .localization-input{}
+  .location-text{
+    margin: 20px 0;
+    font-size: 1rem;
+    font-weight: lighter;
+  }
+  .clock-text{
+    margin: 20px 0;
+    font-size: 4rem;
+    font-weight: lighter;
+  }
+  .date-text{}
+}
