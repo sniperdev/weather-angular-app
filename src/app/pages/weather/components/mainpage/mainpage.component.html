@@ -1,5 +1,13 @@
 <div class="container">
-  <div class="div1">1</div>
+  <div class="div1">
+    <p class="title">Now</p>
+    <img [src]="getWeatherIcon(currentWeather$ | async)" alt="" width="50px">
+    <p class="temp">
+      @if (currentWeather$ | async) {
+        {{(currentWeather$ | async)?.main?.temp?.toFixed(0)}}°C
+      }
+    </p>
+  </div>
   <div class="div2">1</div>
   <div class="div3">1</div>
   <div class="div4">1</div>
