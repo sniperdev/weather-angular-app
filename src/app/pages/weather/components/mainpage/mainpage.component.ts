@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import {WeatherService} from "../../../../shared/services/weather.service";
-import {Weather} from "../../../../shared/interfaces/weather.interface";
 
 @Component({
   selector: 'app-mainpage',
@@ -9,10 +8,11 @@ import {Weather} from "../../../../shared/interfaces/weather.interface";
 })
 export class MainpageComponent {
   protected currentWeather$ = this.weatherService.currentWeather$;
+  protected forecast$ = this.weatherService.forecast$;
+  protected dailyForecast$ = this.weatherService.dailyForecast$;
 
-  protected getWeatherIcon(weather: Weather | null){
-    if(weather) return `http://openweathermap.org/img/wn/${weather.weather[0].icon}.png`;
-    return '';
+  protected getWeatherIcon(icon: string): string{
+    return `http://openweathermap.org/img/wn/${icon}.png`;
   }
 
   constructor(private weatherService: WeatherService) { }
