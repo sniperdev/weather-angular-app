@@ -5,11 +5,12 @@ import {WeatherRoutingModule} from "./weather-routing.module";
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import {ChipsModule} from "primeng/chips";
 import {FormsModule} from "@angular/forms";
+import { MainpageComponent } from './components/mainpage/mainpage.component';
 
 
 
 @NgModule({
-  declarations: [WeatherComponent, SidebarComponent],
+  declarations: [WeatherComponent, SidebarComponent, MainpageComponent],
   imports: [
     CommonModule,
     WeatherRoutingModule,
