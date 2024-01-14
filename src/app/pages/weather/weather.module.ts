@@ -6,16 +6,19 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import {ChipsModule} from "primeng/chips";
 import {FormsModule} from "@angular/forms";
 import { MainpageComponent } from './components/mainpage/mainpage.component';
+import { ChartComponent } from './components/chart/chart.component';
+import {ChartModule} from "primeng/chart";
 
 
 
 @NgModule({
-  declarations: [WeatherComponent, SidebarComponent, MainpageComponent],
+  declarations: [WeatherComponent, SidebarComponent, MainpageComponent, ChartComponent],
   imports: [
     CommonModule,
     WeatherRoutingModule,
     ChipsModule,
     FormsModule,
+    ChartModule,
   ]
 })
 export class WeatherModule { }
