@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {BehaviorSubject} from "rxjs";
 import {Location} from "../interfaces/location.interface";
 import {HttpClient} from "@angular/common/http";
@@ -13,7 +13,14 @@ export class LocationService {
     return this.location.asObservable();
   }
 
-  constructor(private http: HttpClient ) { }
+  constructor(private http: HttpClient ) {
+    if(navigator.geolocation){
+      navigator.geolocation.getCurrentPosition((position) => {
+        this.getLocationByCoords(position.coords.latitude, position.coords.longitude);
+      })
+    }
+  }
+
 
   public getLocation(city: string){
     return this.http.get<Location[]>(`http://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=b728d0936d84a2a6cd9e15eaa7169cee`)

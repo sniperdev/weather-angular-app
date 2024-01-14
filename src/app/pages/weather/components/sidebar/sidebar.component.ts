@@ -8,13 +8,13 @@ import {LocationService} from "../../../../shared/services/location.service";
 })
 export class SidebarComponent implements OnInit {
   protected currentTime!: Date;
-  protected value!: string;
+  protected inputValue!: string;
   protected location$ = this.locationService.location$;
 
   constructor(private locationService: LocationService) { }
 
   protected getCurrentLocation(){
-    this.locationService.getLocation(this.value);
+    this.locationService.getLocation(this.inputValue);
   }
 
   private updateTime(){
@@ -24,11 +24,5 @@ export class SidebarComponent implements OnInit {
   ngOnInit(){
     this.updateTime();
     setInterval(()=> this.updateTime(), 60000);
-
-    if(navigator.geolocation){
-      navigator.geolocation.getCurrentPosition((position) => {
-        this.locationService.getLocationByCoords(position.coords.latitude, position.coords.longitude);
-      })
-    }
   }
 }
