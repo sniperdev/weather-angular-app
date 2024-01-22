@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {WeatherService} from "../../../../shared/services/weather.service";
-import {Forecast} from "../../../../shared/interfaces/forecast.interface";
 
 
 @Component({
@@ -21,7 +20,7 @@ export class ChartComponent implements OnInit{
     }
   }
   windSpeedData = {
-    labels: ["14", "15", "16", "17", "18", "19", "20"],
+    labels: ["14", "15", "16", "17", "18"],
     datasets: [
       {
         label: 'Wind speed',
@@ -48,8 +47,7 @@ export class ChartComponent implements OnInit{
     });
   }
 
-  private extractWindSpeedData(forecast: Forecast): number[] {
-    console.log(forecast.list.map(item => item.wind.speed))
-    return forecast.list.map(item => item.wind.speed);
+  private extractWindSpeedData(forecast: any): number[] {
+    return forecast.map((item:any) => item.wind.speed);
   }
 }
