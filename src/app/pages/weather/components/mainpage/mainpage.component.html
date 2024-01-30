@@ -1,31 +1,19 @@
 <div class="container">
-  <div class="active">
-    @if ((currentWeather$ | async); as weather) {
-      <p class="title">Now</p>
-      <img [src]="getWeatherIcon(weather.weather[0].icon)" alt="" width="50px">
-      <p class="temp">
-          {{weather.main.temp.toFixed(0)}}°C
-      </p>
-    }
+  <app-daily-forecast></app-daily-forecast>
+  <div class="chart-container">
+    <div class="wind">
+      <app-chart [item]="'Wind speed'"></app-chart>
+    </div>
+    <div class="humidity">
+      <app-chart [item]="'Temperature'"></app-chart>
+    </div>
   </div>
-  @if((dailyForecast$ | async); as forecast){
-    @for(weather of forecast; track weather.dt){
-      <div>
-        <p class="title">
-          {{ weather.dt_txt | date: 'EEE' }}
-        </p>
-        <img [src]="getWeatherIcon(weather.weather[0].icon)" alt="" width="50px">
-        <p class="temp">
-          {{ weather.main.temp.toFixed(0) }}°C
-        </p>
-      </div>
-    }
-  }
-  <div class="div7">
-    <app-chart></app-chart>
+  <div class="chart-container">
+    <div class="rain">
+      <app-chart [item]="'Humidity'"></app-chart>
+    </div>
+    <div class="uv-indicator">
+      <app-chart [item]="'Pressure'"></app-chart>
+    </div>
   </div>
-  <div class="div8">1</div>
-  <div class="div9">1</div>
-  <div class="div10">1</div>
-  <div class="div11">1</div>
 </div>

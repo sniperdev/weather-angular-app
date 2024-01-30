@@ -1,0 +1,24 @@
+<div class="days-container">
+  @if ((currentWeather$ | async); as weather) {
+    <div (click)="showTodayForecast()" class="active">
+      <p class="title">Now</p>
+      <img [src]="getWeatherIcon(weather.weather[0].icon)" alt="" width="50px">
+      <p class="temp">
+        {{ weather.main.temp.toFixed(0) }}°C
+      </p>
+    </div>
+  }
+  @if ((dailyForecast$ | async); as forecast) {
+    @for (weather of forecast; track weather.dt) {
+      <div (click)="showDailyForecast(weather.dt_txt)">
+        <p class="title">
+          {{ weather.dt_txt | date: 'EEE' }}
+        </p>
+        <img [src]="getWeatherIcon(weather.weather[0].icon)" alt="" width="50px">
+        <p class="temp">
+          {{ weather.main.temp.toFixed(0) }}°C
+        </p>
+      </div>
+    }
+  }
+</div>

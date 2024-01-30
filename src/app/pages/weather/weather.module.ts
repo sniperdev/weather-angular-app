@@ -8,11 +8,12 @@ import {FormsModule} from "@angular/forms";
 import { MainpageComponent } from './components/mainpage/mainpage.component';
 import { ChartComponent } from './components/chart/chart.component';
 import {ChartModule} from "primeng/chart";
+import { DailyForecastComponent } from './components/mainpage/components/daily-forecast/daily-forecast.component';
 
 
 
 @NgModule({
-  declarations: [WeatherComponent, SidebarComponent, MainpageComponent, ChartComponent],
+  declarations: [WeatherComponent, SidebarComponent, MainpageComponent, ChartComponent, DailyForecastComponent],
   imports: [
     CommonModule,
     WeatherRoutingModule,

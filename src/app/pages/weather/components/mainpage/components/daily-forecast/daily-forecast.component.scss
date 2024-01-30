@@ -1,0 +1,19 @@
+.days-container{
+  display: flex;
+  justify-content: space-around;
+  div {
+    flex-grow: 1;
+    background-color: white;
+    font-size: 30px;
+    text-align: center;
+    margin: 10px;
+    border-radius: 10px;
+    .title{
+      font-size: 20px;
+      margin: 20px 0;
+    }
+  }
+  .active{
+    border: 2px solid black;
+  }
+}
