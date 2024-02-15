@@ -2,13 +2,30 @@
   box-sizing: border-box;
 }
 .wrapper{
-  width: 100vw;
-  height: 100vh;
+  width: auto;
+  height: auto;
   display: flex;
-  &__sidebar{
-    flex-basis: 20%;
+  flex-direction: column;
+
+}
+
+@media (min-width: 1000px){
+  .wrapper{
+    //width: 100vw;
+    //height: 100vh;
+    flex-direction: row;
+    &__sidebar{
+      flex-basis: 20%;
+    }
+    &__mainpage{
+      flex-basis: 80%;
+    }
   }
-  &__mainpage{
-    flex-basis: 80%;
+}
+
+@media (min-width: 1400px){
+  .wrapper{
+    width: 100vw;
+    height: 100vh;
   }
 }

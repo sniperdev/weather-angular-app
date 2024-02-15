@@ -1,15 +1,33 @@
 .container{
   height: 100%;
+  width: auto;
   background-color: #F0F1F3;
   .chart-container{
     display: flex;
-    height: 40%;
+    flex-direction: column;
+    margin: 0;
     div{
-      width: 50%;
-      padding: 20px;
+      box-sizing: border-box;
+      width: 98%;
+      height: 200px;
+      padding: 5px;
       border-radius: 10px;
-      margin: 10px;
+      margin: 2%;
       background-color: white;
+    }
+  }
+}
+
+@media (min-width: 1400px){
+  .container{
+    .chart-container{
+      height: 32%;
+      flex-direction: row;
+      margin: 1% 0;
+      div{
+        height: 100%;
+        margin: 10px;
+      }
     }
   }
 }
