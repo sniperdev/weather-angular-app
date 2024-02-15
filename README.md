@@ -1,27 +1,39 @@
-# WeatherAngularApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.
+# Angular Weather App
 
-## Development server
+Angular Weather App is a simple weather application that utilizes Angular, the PrimeNG library, and the OpenWeatherMap API. The application allows users to check the current weather for their current location and search for weather forecasts in other cities.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Code scaffolding
+## Features
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Current Weather: The app automatically locates the user and displays current weather information for their current location.
+- City Search: Users can enter a city name, and the app will provide a weather forecast for the selected area.
+- Weather Details: Detailed information on temperature, humidity, wind speed, etc., is available for each city.
+- Weather Icons: The app uses weather icons from the API to visually represent atmospheric conditions.
 
-## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Tech Stack
 
-## Running unit tests
+- **Angular**: A framework for building web applications.
+- **PrimeNG**: A UI component library for Angular.
+- **OpenWeatherMap API**: Provides weather forecast information for different locations.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
+## Installation
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Install project with npm
 
-## Further help
+```bash
+  npm install
+  ng serve
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Usage
+LIVE -
+#### Current Weather
+Upon opening the application, the current weather for your location will be displayed.
+#### Search for a City
+1. Enter the name of the city you want to check the weather for in the search bar.
+2. Press Enter or click the search button.
+#### Weather Details
+Detailed weather information for the selected city will be displayed, including temperature, humidity, wind speed, and more.
