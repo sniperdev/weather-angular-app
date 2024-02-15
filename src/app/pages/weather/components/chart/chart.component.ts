@@ -28,7 +28,7 @@ export class ChartComponent implements OnInit{
         label: this.item,
         data: [1],
         fill: false,
-        borderColor: '#4bc0c0'
+        borderColor: '#4B81D0'
       }
     ]
   };

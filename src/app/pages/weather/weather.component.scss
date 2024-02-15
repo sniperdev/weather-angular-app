@@ -1,3 +1,14 @@
+*{
+  box-sizing: border-box;
+}
 .wrapper{
+  width: 100vw;
+  height: 100vh;
   display: flex;
+  &__sidebar{
+    flex-basis: 20%;
+  }
+  &__mainpage{
+    flex-basis: 80%;
+  }
 }
