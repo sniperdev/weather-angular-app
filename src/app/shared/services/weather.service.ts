@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {BehaviorSubject} from "rxjs";
+import {BehaviorSubject, tap} from "rxjs";
 import {Weather} from "../interfaces/weather.interface";
 import {HttpClient} from "@angular/common/http";
 import {Forecast} from "../interfaces/forecast.interface";
@@ -39,14 +39,24 @@ export class WeatherService {
       });
   }
 
+  // public getForecast(lat: number, lon: number){
+  //   return this.http.get<Forecast>(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=b728d0936d84a2a6cd9e15eaa7169cee&units=metric`)
+  //     .subscribe((forecast: Forecast) => {
+  //       this.forecast.next(forecast);
+  //       const dailyForecast = forecast.list.filter(item => item.dt_txt.includes('12:00:00'));
+  //       this.dailyForecast.next(dailyForecast);
+  //     });
+  // }
+
   public getForecast(lat: number, lon: number){
-    return this.http.get<Forecast>(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=b728d0936d84a2a6cd9e15eaa7169cee&units=metric`)
-      .subscribe((forecast: Forecast) => {
-        this.forecast.next(forecast);
-        const dailyForecast = forecast.list.filter(item => item.dt_txt.includes('12:00:00'));
-        this.dailyForecast.next(dailyForecast);
-      });
-  }
+      return this.http.get<Forecast>(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=b728d0936d84a2a6cd9e15eaa7169cee&units=metric`)
+        .pipe(tap(
+          (forecast: Forecast) => {
+          this.forecast.next(forecast);
+          const dailyForecast = forecast.list.filter(item => item.dt_txt.includes('12:00:00'));
+          this.dailyForecast.next(dailyForecast);
+        }));
+    }
 
   public getOneDayForecast(date: string){
     const forecast = this.forecast.getValue();

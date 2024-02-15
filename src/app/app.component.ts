@@ -19,8 +19,11 @@ export class AppComponent implements OnInit{
     this.locationService.location$.subscribe(location => {
       if(!location.lat && !location.lon) return;
       this.weatherService.getCurrentWeather(location.lat, location.lon);
-      this.weatherService.getForecast(location.lat, location.lon);
-      // this.weatherService.getOneDayForecast(this.today);
+      this.weatherService.getForecast(location.lat, location.lon).subscribe(
+        () => {
+          this.weatherService.getOneDayForecast(this.today);
+        }
+      );
     });
   }
 }

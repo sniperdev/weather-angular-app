@@ -10,18 +10,23 @@ import {DatePipe} from "@angular/common";
 export class DailyForecastComponent {
   protected currentWeather$ = this.weatherService.currentWeather$;
   protected dailyForecast$ = this.weatherService.dailyForecast$;
+  protected activeDay: number = 0;
 
   constructor(private weatherService: WeatherService, private datePipe: DatePipe) { }
 
   protected getWeatherIcon(icon: string): string {
     return `http://openweathermap.org/img/wn/${icon}.png`;
   }
-  protected showDailyForecast(date: string): void {
-    this.weatherService.getOneDayForecast(date);
-  }
   protected showTodayForecast(): void{
-    const today: string = this.datePipe.transform(new Date(), 'yyyy-MM-dd')||'';
-    console.log(today);
+    const today: string = this.datePipe.transform(new Date(), 'yyyy-MM-dd hh:mm:ss')||'';
     this.weatherService.getOneDayForecast(today);
+    this.onDayClick(0);
+  }
+  protected showDailyForecast(date: string, index: number): void {
+    this.weatherService.getOneDayForecast(date);
+    this.onDayClick(index);
+  }
+  private onDayClick(index: number): void{
+    this.activeDay = index;
   }
 }

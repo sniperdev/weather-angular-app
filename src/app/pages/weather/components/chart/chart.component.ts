@@ -36,6 +36,7 @@ export class ChartComponent implements OnInit{
   constructor(private weatherService: WeatherService) { }
 
   ngOnInit(): void {
+    this.options.plugins.title.text = this.item;
     this.weatherService.oneDayForecast$.subscribe((forecast: any) => {
       const days = forecast.map((item: any) => item.dt_txt.split(' ')[1].slice(0,5));
       this.data = {
@@ -44,6 +45,7 @@ export class ChartComponent implements OnInit{
         datasets: [
           {
             ...this.data.datasets[0],
+            label: this.item,
             data: this.extractData(forecast)
           }
         ]

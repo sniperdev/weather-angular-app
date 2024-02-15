@@ -1,6 +1,6 @@
 <div class="days-container">
   @if ((currentWeather$ | async); as weather) {
-    <div (click)="showTodayForecast()" class="active">
+    <div (click)="showTodayForecast()" [class.active]="activeDay === 0">
       <p class="title">Now</p>
       <img [src]="getWeatherIcon(weather.weather[0].icon)" alt="" width="50px">
       <p class="temp">
@@ -9,8 +9,8 @@
     </div>
   }
   @if ((dailyForecast$ | async); as forecast) {
-    @for (weather of forecast; track weather.dt) {
-      <div (click)="showDailyForecast(weather.dt_txt)">
+    @for (weather of forecast; let i = $index; track weather.dt) {
+      <div (click)="showDailyForecast(weather.dt_txt, i+1)" [class.active]="activeDay === i+1">
         <p class="title">
           {{ weather.dt_txt | date: 'EEE' }}
         </p>
