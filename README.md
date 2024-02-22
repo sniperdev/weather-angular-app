@@ -6,10 +6,10 @@ Angular Weather App is a simple weather application that utilizes Angular, the P
 
 ## Features
 
-- Current Weather: The app automatically locates the user and displays current weather information for their current location.
-- City Search: Users can enter a city name, and the app will provide a weather forecast for the selected area.
-- Weather Details: Detailed information on temperature, humidity, wind speed, etc., is available for each city.
-- Weather Icons: The app uses weather icons from the API to visually represent atmospheric conditions.
+- **Current Weather**: The app automatically locates the user and displays current weather information for their current location.
+- **City Search**: Users can enter a city name, and the app will provide a weather forecast for the selected area.
+- **Weather Details**: Detailed information on temperature, humidity, wind speed, etc., is available for each city.
+- **Weather Icons**: The app uses weather icons from the API to visually represent atmospheric conditions.
 
 
 ## Tech Stack
@@ -29,7 +29,7 @@ Install project with npm
 ```
 
 ## Usage
-LIVE -
+LIVE - https://sniperdev.github.io/weather-angular-app/weather
 #### Current Weather
 Upon opening the application, the current weather for your location will be displayed.
 #### Search for a City
