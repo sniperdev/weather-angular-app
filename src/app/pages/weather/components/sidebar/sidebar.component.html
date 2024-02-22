@@ -1,6 +1,6 @@
 <div class="sidebar">
-  <span class="p-input-icon-left localization-input">
-    <i class="pi pi-search" (click)="getCurrentLocation()"></i>
+  <span class="p-input-icon-right localization-input">
+    <i class="pi pi-search search-icon" (click)="getCurrentLocation()"></i>
     <input type="text" pInputText [(ngModel)]="inputValue" (keyup.enter)="getCurrentLocation()" class="p-inputtext-sm"/>
   </span>
   <span class="location-text">

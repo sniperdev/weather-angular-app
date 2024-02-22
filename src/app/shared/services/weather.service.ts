@@ -39,24 +39,15 @@ export class WeatherService {
       });
   }
 
-  // public getForecast(lat: number, lon: number){
-  //   return this.http.get<Forecast>(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=b728d0936d84a2a6cd9e15eaa7169cee&units=metric`)
-  //     .subscribe((forecast: Forecast) => {
-  //       this.forecast.next(forecast);
-  //       const dailyForecast = forecast.list.filter(item => item.dt_txt.includes('12:00:00'));
-  //       this.dailyForecast.next(dailyForecast);
-  //     });
-  // }
-
   public getForecast(lat: number, lon: number){
-      return this.http.get<Forecast>(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=b728d0936d84a2a6cd9e15eaa7169cee&units=metric`)
-        .pipe(tap(
-          (forecast: Forecast) => {
+    return this.http.get<Forecast>(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=b728d0936d84a2a6cd9e15eaa7169cee&units=metric`)
+      .pipe(tap(
+        (forecast: Forecast) => {
           this.forecast.next(forecast);
           const dailyForecast = forecast.list.filter(item => item.dt_txt.includes('12:00:00'));
           this.dailyForecast.next(dailyForecast);
         }));
-    }
+  }
 
   public getOneDayForecast(date: string){
     const forecast = this.forecast.getValue();
